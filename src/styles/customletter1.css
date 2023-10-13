@@ -1,0 +1,47 @@
+
+.titleDiv {
+  padding-bottom: 6.5em;
+  -webkit-box-reflect: below 0 -webkit-gradient(
+    linear, left top, left bottom,
+     from(transparent),
+     color-stop(0.5, transparent),
+     to(rgba(255, 255, 255, 0.25))
+  );
+}
+
+@media screen and (max-width: 498px) {
+  .titleDiv {
+    font-size: 0.5rem;
+    padding-bottom: 6.5em;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 9em;
+  text-shadow: 0.25rem 0.25rem 0.125rem rgba(0, 0, 0, 0.25);
+  animation: bouncing 5s ease-in-out infinite;
+  transition: color 0.5s ease-in-out;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+@keyframes bouncing {
+  0% {
+    transform: translateY(0em);
+  }
+  10% {
+    transform: translateY(0.3em);
+  }
+  50% {
+    transform: translateY(-0.4em);
+  }
+  90% {
+    transform: translateY(0.3em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}

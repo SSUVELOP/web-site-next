@@ -1,0 +1,139 @@
+html, body {
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.first-content {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-color: white;
+  /* padding-top: 75px; */
+}
+
+.bg-img {
+  z-index: -1;
+  flex-grow: 1;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(50%);
+  transform: scale(1.1);
+  transition : all 0.25s ease-in-out;
+}
+
+.events-div {
+  position: relative;
+  height: 32rem;
+  width: 24rem;
+  animation: waving-anim 3s infinite ease-in-out;
+}
+
+@keyframes waving-anim {
+  0% {
+    transform: translateY(1rem);
+  } 50% {
+    transform: translateY(-1rem);
+  } 100% {
+    transform: translateY(1rem);
+  }
+}
+
+.event-div {
+  z-index: 0;
+  position: absolute;
+  padding: 0.75rem;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+
+  background-color: white;
+
+  transform: translate(-50%, 0%);
+  transition : all 0.25s ease-in-out;
+}
+
+.event-div.selected {
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.event-button {
+  cursor: pointer;
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: white;
+  border-radius: 100%;
+  margin: 0.75rem;
+  opacity: 0.5;
+  transition : all 0.25s ease-in-out;
+}
+
+.event-button.selected {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+.card-img {
+  height: 20rem;
+  width: 20rem;
+  /* background-image: url('/event_img/recruiting1.png'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.flow-text {
+  position: relative;
+  width: 20rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.5rem;
+  display: flex;
+
+  .animate {
+    position: relative;
+    transform: translateX(0%);
+    transition : all 1s ease-in-out;
+    left: 0%;
+  }
+
+  .animate:hover {
+    transform: translateX(-100%);
+    left: 100%;
+  }
+}
+
+.flow-text a {
+  padding: 1rem 0.25rem 0;
+}
+
+.fader {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0.5rem;
+
+  &.fader-left {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  &.fader-right {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1)
+    );
+  }
+}

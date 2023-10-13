@@ -1,0 +1,13 @@
+.test {
+  font-size: large;
+  font-weight: 900;
+  color:black;
+}
+
+.userMsg {
+  color: black;
+}
+
+.roomMsg {
+  color: gray;
+}

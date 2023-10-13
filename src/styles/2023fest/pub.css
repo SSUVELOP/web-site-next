@@ -1,0 +1,438 @@
+html, body {
+  overflow-x: hidden;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.debug {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.table-no {
+  border: 2px solid white;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+}
+
+.screen-bg {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(17, 0, 63, 0.2),
+    rgba(36, 0, 165, 0.2)),
+    url('/star.png');
+  background-size: contain;
+  /* filter: blur(2px); */
+  z-index: -10;
+}
+
+.bdf {
+  -webkit-backdrop-filter: blur(20px) brightness(80%);
+  backdrop-filter: blur(20px) brightness(80%);
+}
+
+.receipt {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 63, 0.5),
+    rgba(0, 0, 165, 0.3)),
+    url('/receipt.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.sky {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: moveStar 240s linear infinite;
+}
+.sky .star {
+  fill: #fff;
+  stroke: none;
+  stroke-width: 0;
+}
+@keyframes moveStar {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.header {
+  position: fixed;
+  left: 0; top: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+  
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(12, 0, 31, 0.2),
+    rgba(22, 0, 83, 0.2)),
+    url('/header.png');
+  background-position: 50% 30%;
+  background-size: cover;
+}
+
+.header.shadow {
+  box-shadow: 0 -0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.9);
+}
+
+.logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url('/주점\ 로고.png');
+}
+
+.nav {
+  position: fixed;
+  left: 0; bottom: 0;
+  width: 100%;
+  /* background: linear-gradient(#0c001f, #160053); */
+  -webkit-backdrop-filter: blur(10px) brightness(60%);
+  backdrop-filter: blur(10px) brightness(60%);
+}
+.nav.shadow {
+  box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.7);
+}
+
+.menu-icon {
+  position: relative;
+  width: 100%; height: 100%;
+
+  > * {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4rem; height: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+  }
+
+  :nth-child(1) {
+    transform: translate(-50%, calc(-50% - 1rem));
+  }
+  :nth-child(2) {
+    transform: translate(-50%, -50%);
+  }
+  :nth-child(3) {
+    transform: translate(-50%, calc(-50% + 1rem));
+  }
+}
+
+.menu-icon.active {
+  :nth-child(1) {
+    animation: menu-active-1 0.25s ease-in-out 0s 1 normal forwards;
+  }
+  :nth-child(2) {
+    animation: menu-active-2 0.25s ease-in-out 0s 1 normal forwards;
+  }
+  :nth-child(3) {
+    animation: menu-active-3 0.25s ease-in-out 0s 1 normal forwards;
+  }
+}
+
+.menu-icon.deactive {
+  :nth-child(1) {
+    animation: menu-deactive-1 0.25s ease-in-out 0s 1 normal forwards;
+  }
+  :nth-child(2) {
+    animation: menu-deactive-2 0.25s ease-in-out 0s 1 normal forwards;
+  }
+  :nth-child(3) {
+    animation: menu-deactive-3 0.25s ease-in-out 0s 1 normal forwards;
+  }
+}
+
+@keyframes menu-active-1 {
+  0% {
+    transform: translate(-50%, calc(-50% - 1rem));
+  } 50% {
+    transform: translate(-50%, -50%);
+  } 100% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@keyframes menu-active-2 {
+  0% {
+    opacity: 1;
+  } 49% {
+    opacity: 1;
+  } 51% {
+    opacity: 0;
+  } 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes menu-active-3 {
+  0% {
+    transform: translate(-50%, calc(-50% + 1rem));
+  } 50% {
+    transform: translate(-50%, -50%);
+  } 100% {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@keyframes menu-deactive-1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  } 50% {
+    transform: translate(-50%, -50%);
+  } 100% {
+    transform: translate(-50%, calc(-50% - 1rem));
+  }
+}
+
+@keyframes menu-deactive-2 {
+  0% {
+    opacity: 0;
+  } 49% {
+    opacity: 0;
+  } 51% {
+    opacity: 1;
+  } 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-deactive-3 {
+  0% {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  } 50% {
+    transform: translate(-50%, -50%);
+  } 100% {
+    transform: translate(-50%, calc(-50% + 1rem));
+  }
+}
+
+.menu-photo {
+  height: 10rem;
+  width: 10rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+}
+
+.drawer {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  transition: all 0.2s ease-in-out;
+
+  .bg {
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    width: 100%; height: 100%;
+    transition: all 0.2s ease-in-out
+  }
+
+  .fg {
+    position: absolute;
+    display: flex;
+    padding-top: 5rem;
+    flex-direction: column;
+    right: -16rem;
+    background-image: url('/drawer.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 16rem; height: 100%;
+    transition: all 0.2s ease-in-out
+  }
+
+}
+
+.drawer.active {
+  z-index: 10;
+
+  .bg {
+    opacity: 0.5;
+  }
+
+  .fg {
+    right:0
+  }
+}
+
+.ssuvelop {
+  background-image: url('/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ordered-list {
+  left: calc(16rem - 100%); top: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  width: calc(100% - 16rem); height: 100%;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 63, 0.5),
+    rgba(0, 0, 165, 0.3)),
+    url('/ordered.png');
+  background-size: cover;
+  background-position: center;
+  transition: all 0.2s ease-in-out
+}
+.ordered-list.active {
+  left: 0;
+}
+
+.ordered-menu {
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
+.ordered-menu.active {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.ordered-menu-button {
+  transform: rotate(180deg);
+  transition: all 0.1s ease-in-out;
+}
+.ordered-menu-button.active {
+  transform: rotate(360deg);
+}
+
+.table-order-list {
+  left:100%; right: auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.table-order-list.active {
+  left: auto; right:0;
+}
+
+.ordered-list-state {
+  overflow: hidden;
+  :nth-child(1) {
+    left: 0; right: auto;
+    transition: all 0.2s ease-in-out;
+  }
+  :nth-last-child(1) {
+    left: -100%; right: 100%;
+    transition: all 0.2s ease-in-out;
+  }
+}
+.ordered-list-state.active {
+  :nth-child(1) {
+    left: -100%; right: 100%;
+  }
+  :nth-last-child(1) {
+    left: 0; right: auto;
+  }
+}
+
+.ordered-item-state {
+  overflow: hidden;
+  :nth-child(1) {
+    left: auto; right: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  :nth-last-child(1) {
+    left: 100%; right: -100%;
+    transition: all 0.2s ease-in-out;
+  }
+}
+.ordered-item-state.active {
+  :nth-child(1) {
+    left: 100%; right: -100%;
+  }
+  :nth-last-child(1) {
+    left: auto; right: 0;
+  }
+}
+
+.bell-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: all 0.2s ease-in-out 0.2s;
+  opacity: 0;
+  z-index: -1;
+  
+  background-color: blu;
+}
+
+.bell-bg.active {
+  opacity: 1;
+  z-index: 15;
+
+}
+
+.bell {
+  animation: none;
+}
+
+.bell.alarm {
+  animation: bell-swing 0.3s ease-in-out 0s infinite normal;
+}
+
+@keyframes bell-swing {
+  0% {
+    transform: rotate(0deg);
+  } 10% {
+    transform: rotate(30deg);
+  } 25% {
+    transform: rotate(-30deg);
+  } 50% {
+    transform: rotate(30deg);
+  } 75% {
+    transform: rotate(-30deg);
+  } 90% {
+    transform: rotate(30deg);
+  } 100% {
+    transform: rotate(0deg);
+  }
+}
+
+.order-list {
+  display: none;
+  left: 0; top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  width: 100%; height: 100%;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.order-list.active {
+  display: flex;
+}
+
+.menu-alert {
+  position: absolute;
+  right: 0;
+  transition: all 0.1s ease-in-out;
+  opacity: 0;
+}
+
+.menu-alert.active {
+  opacity: 1;
+}

@@ -1,0 +1,27 @@
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+.score-list {
+  transition: all 0.2s ease-in-out;
+  transform: translate(0, 0);
+  opacity: 0;
+}
+
+.score-list.active {
+  transition: all 0.2s ease-in-out;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.score-list.before {
+  transform: translate(-50%, 0);
+  opacity: 0;
+}
+
+.score-list.after {
+  transform: translate(50%, 0);
+  opacity: 0;
+}
